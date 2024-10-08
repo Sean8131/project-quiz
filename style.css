@@ -1,0 +1,33 @@
+body {
+    min-height: 100vh;
+}
+
+.main-container {
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    background-color: #F7DBA7;
+}
+
+.quiz-tracker {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#quiz-question {
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+.answer-buttons {
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 5px;
+}
+
+#submit-button {
+    background-color: #99B2DD;
+}
