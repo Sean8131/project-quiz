@@ -1,5 +1,3 @@
-console.log("Hey");
-
 const questions = [
   {
     question: "Which of these animals is native to New Zealand?",
@@ -105,4 +103,21 @@ const questions = [
 
 // Add your code underneath this comment.
 
+console.log(questions[0].question);
 
+const quizQuestion = document.getElementById('quiz-question');
+quizQuestion.innerText = (questions[0].question);
+
+console.log(questions[0].options[0]);
+
+const quizAnswer1 = document.getElementById('answer-1');
+quizAnswer1.innerText = (questions[0].options[0]);
+
+const quizAnswer2 = document.getElementById('answer-2');
+quizAnswer2.innerText = (questions[0].options[1]);
+
+const quizAnswer3 = document.getElementById('answer-3');
+quizAnswer3.innerText = (questions[0].options[2]);
+
+const quizAnswer4 = document.getElementById('answer-4');
+quizAnswer4.innerText = (questions[0].options[3]);
