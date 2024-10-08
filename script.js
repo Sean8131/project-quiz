@@ -1,3 +1,5 @@
+console.log("Hey");
+
 const questions = [
   {
     question: "Which of these animals is native to New Zealand?",
