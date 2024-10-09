@@ -119,16 +119,22 @@ submitPush.addEventListener("click", submitAnswer);
 
 function submitAnswer(event) {
   let correctAnswer = questions[0].answer;
-
+  
+  // Declares a correctAnswer variable as the answer object within the first questions object in the questions array.
+  
   if (selectedAnswer === null) {
     alert("No answer selected");
   return;
   }
 
+  // If there is no answer selected, the value is null and an alert pops up on the browser to notify the user. Then the function exits using return because there is no need to run the rest of the function if there is no answer selected.
+
     button1.style.backgroundColor = "#F7DBA7";
     button2.style.backgroundColor = "#F7DBA7";
     button3.style.backgroundColor = "#F7DBA7";
     button4.style.backgroundColor = "#F7DBA7";
+
+    // Resets all the buttons to the default color before any answers are highlighted.
 
   if (selectedAnswer === correctAnswer) {
     if (selectedAnswer === button1.innerText) {
@@ -140,34 +146,37 @@ function submitAnswer(event) {
     } else if (selectedAnswer === button4.innerText) {
       button4.style.backgroundColor = "green";
     }
+
+    // If statement to check if the selected answer is the same as the correct answer. If the seclected answer is the right one, then the button will be highlighted green.
+
   } else {
-    if (selectedAnswer != correctAnswer) {
+    if (selectedAnswer === button1.innerText) {
       button1.style.backgroundColor = "red";
-    } else if (selectedAnswer != button2.innerText) {
+    } else if (selectedAnswer === button2.innerText) {
       button2.style.backgroundColor = "red";
-    } else if (selectedAnswer != button3.innerText) {
+    } else if (selectedAnswer === button3.innerText) {
       button3.style.backgroundColor = "red";
-    } else if (selectedAnswer != button4.innerText) {
+    } else if (selectedAnswer === button4.innerText) {
       button4.style.backgroundColor = "red";
+    }
+
+    // If the selected answer was incorrect, highlight the button in red.
+
+    if (correctAnswer === button1.innerText) {
+      button1.style.backgroundColor = "green";
+    } else if (correctAnswer === button2.innerText) {
+      button2.style.backgroundColor = "green";
+    } else if (correctAnswer === button3.innerText) {
+      button3.style.backgroundColor = "green";
+    } else if (correctAnswer === button4.innerText) {
+      button4.style.backgroundColor = "green";
     }
   }
 
-    if (selectedAnswer === button1.innerText) {
-      button1.style.backgroundColor = "green";
-    } else if (selectedAnswer === button2.innerText) {
-      button2.style.backgroundColor = "green";
-    } else if (selectedAnswer === button3.innerText) {
-      button3.style.backgroundColor = "green";
-    } else if (selectedAnswer === button4.innerText) {
-      button4.style.backgroundColor = "green";
-    }
+  // Highlights the button with the correct answer so the user can see the correct answer.
 
     const submitPush = document.getElementById('submit-button');
     submitPush.innerText = "Go to next question";
 }
 
-
-
-// If the user hasn't clicked an answer button, the value of selectedAnswer is null, and an alert will pop up and let the user know there is "No answer selected". If an answer has been selected, the function will log the "You selected <answer>" to the console. The function provides feedback to the user by letting them know if they have selected an answer and what answer they have selected.
-
-// Declares a correctAnswer variable as the answer object within the first questions object in the questions array.
+// Changes 'submit-button' text from "submit answer" to "go to next question".
