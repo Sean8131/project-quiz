@@ -103,12 +103,10 @@ const questions = [
 
 // Add your code underneath this comment.
 
-console.log(questions[0].question);
-
 const quizQuestion = document.getElementById('quiz-question');
 quizQuestion.innerText = (questions[0].question);
 
-console.log(questions[0].options[0]);
+// The 'quizQuestion' variable targets quiz-question id in index.html. The 'quizQuestion.innerText' function replaces the 'quiz-question' text with text from the first object in the questions array.
 
 const quizAnswer1 = document.getElementById('answer-1');
 quizAnswer1.innerText = (questions[0].options[0]);
@@ -121,3 +119,49 @@ quizAnswer3.innerText = (questions[0].options[2]);
 
 const quizAnswer4 = document.getElementById('answer-4');
 quizAnswer4.innerText = (questions[0].options[3]);
+
+// The 'quizAnswer' variables target the associated answer id's in index.html. The 'quizAnswer.innerText' functions replace the text from 'answer-<>' elements with text from the 'questions[0].options' arrays.
+
+let button1 = document.getElementById("answer-1");
+let button2 = document.getElementById("answer-2");
+let button3 = document.getElementById("answer-3");
+let button4 = document.getElementById("answer-4");
+
+// Declared three varialbes for the answer buttons and linked them to the html script.
+
+button1.addEventListener("click", changeColorWhenClicked);
+button2.addEventListener("click", changeColorWhenClicked);
+button3.addEventListener("click", changeColorWhenClicked);
+button4.addEventListener("click", changeColorWhenClicked);
+
+// Added event listeners to each button that run the "changeColorWhenClicked" function when they are pressed.
+
+let selectedAnswer = null;
+
+// Initialising a selectedAnswer variable with a null value. This means  the initial value when no answer is selected is null.                                                
+
+function changeColorWhenClicked (event) {
+  button1.style.backgroundColor = "#F7DBA7";
+  button2.style.backgroundColor = "#F7DBA7";
+  button3.style.backgroundColor = "#F7DBA7";
+  button4.style.backgroundColor = "#F7DBA7";
+  event.target.style.backgroundColor = "#D1DCF0";
+  selectedAnswer = event.target.innerText;
+}
+
+// The changeColorWhenClicked function first resets all of the answers back to the original color. Then changes the color of the answer that was clicked. It does this by using the event property of the event object to listen for an event, in this case, the button been clicked. Once a button is clicked, the selectedAnswer variable is reassigned the value of the button that was clicked.
+
+const submitPush = document.getElementById("submit-button");
+submitPush.addEventListener("click", submitAnswer);
+
+// The submitPush variable is linked to the "submit-button" element in the html. The addEventListener method runs the "submitAnswer" function when the "submit-button" button is clicked.
+
+function submitAnswer() {
+  if (selectedAnswer === null) {
+    alert("No answer selected");
+  } else {
+    console.log("You selected: " + selectedAnswer);
+  }
+}
+
+// If the user hasn't clicked an answer button, the value of selectedAnswer is null, and an alert will pop up and let the user know there is "No answer selected". If an answer has been selected, the function will log the "You selected <answer>" to the console. The function provides feedback to the user by letting them know if they have selected an answer and what answer they have selected.
