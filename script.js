@@ -1,33 +1,18 @@
 const questions = [
   {
     question: "Which of these animals is native to New Zealand?",
-    options: [
-      "Kangaroo",
-      "Kiwi bird",
-      "Koala",
-      "Emu"
-    ],
-    answer: "Kiwi bird"
+    options: ["Kangaroo", "Kiwi bird", "Koala", "Emu"],
+    answer: "Kiwi bird",
   },
   {
     question: "What is the capital city of New Zealand?",
-    options: [
-      "Auckland",
-      "Wellington",
-      "Christchurch",
-      "Hamilton"
-    ],
-    answer: "Wellington"
+    options: ["Auckland", "Wellington", "Christchurch", "Hamilton"],
+    answer: "Wellington",
   },
   {
     question: "What is the name of the indigenous people of New Zealand?",
-    options: [
-      "Maori",
-      "Aborigines",
-      "Inuit",
-      "Sami"
-    ],
-    answer: "Maori"
+    options: ["Maori", "Aborigines", "Inuit", "Sami"],
+    answer: "Maori",
   },
   {
     question: "Which of these films was primarily shot in New Zealand?",
@@ -35,9 +20,9 @@ const questions = [
       "Harry Potter series",
       "Lord of the Rings trilogy",
       "Pirates of the Caribbean",
-      "Star Wars series"
+      "Star Wars series",
     ],
-    answer: "Lord of the Rings trilogy"
+    answer: "Lord of the Rings trilogy",
   },
   {
     question: "What is the highest mountain in New Zealand?",
@@ -45,80 +30,56 @@ const questions = [
       "Mount Cook (Aoraki)",
       "Mount Everest",
       "Mount Kilimanjaro",
-      "Mount McKinley"
+      "Mount McKinley",
     ],
-    answer: "Mount Cook (Aoraki)"
+    answer: "Mount Cook (Aoraki)",
   },
   {
     question: "Which city in New Zealand is known as the 'City of Sails'?",
-    options: [
-      "Auckland",
-      "Wellington",
-      "Dunedin",
-      "Queenstown"
-    ],
-    answer: "Auckland"
+    options: ["Auckland", "Wellington", "Dunedin", "Queenstown"],
+    answer: "Auckland",
   },
   {
     question: "What is the official national sport of New Zealand?",
-    options: [
-      "Cricket",
-      "Rugby Union",
-      "Soccer",
-      "Netball"
-    ],
-    answer: "Rugby Union"
+    options: ["Cricket", "Rugby Union", "Soccer", "Netball"],
+    answer: "Rugby Union",
   },
   {
     question: "Which sea lies to the west of New Zealand?",
-    options: [
-      "Tasman Sea",
-      "Coral Sea",
-      "South China Sea",
-      "Arafura Sea"
-    ],
-    answer: "Tasman Sea"
+    options: ["Tasman Sea", "Coral Sea", "South China Sea", "Arafura Sea"],
+    answer: "Tasman Sea",
   },
   {
     question: "What is the traditional Maori greeting called?",
-    options: [
-      "Haka",
-      "Hongi",
-      "Powhiri",
-      "Waka"
-    ],
-    answer: "Hongi"
+    options: ["Haka", "Hongi", "Powhiri", "Waka"],
+    answer: "Hongi",
   },
   {
-    question: "Which New Zealand town is famous for its geothermal activity and Maori culture?",
-    options: [
-      "Rotorua",
-      "Christchurch",
-      "Hamilton",
-      "Napier"
-    ],
-    answer: "Rotorua"
-  }
+    question:
+      "Which New Zealand town is famous for its geothermal activity and Maori culture?",
+    options: ["Rotorua", "Christchurch", "Hamilton", "Napier"],
+    answer: "Rotorua",
+  },
 ];
 
 // Add your code underneath this comment.
 
-const quizQuestion = document.getElementById('quiz-question');
-quizQuestion.innerText = (questions[0].question);
+const quizQuestion = document.getElementById("quiz-question");
+quizQuestion.innerText = questions[0].question;
 
 // The 'quizQuestion' variable targets quiz-question id in index.html. The 'quizQuestion.innerText' function replaces the 'quiz-question' text with text from the first object in the questions array.
 
-const quizAnswer1 = document.getElementById('answer-1');
-quizAnswer1.innerText = (questions[0].options[0]);
+const quizAnswer1 = document.getElementById("answer-1");
+quizAnswer1.innerText = questions[0].options[0];
 
-const quizAnswer2 = document.getElementById('answer-2');
-quizAnswer2.innerText = (questions[0].options[1]);
+const quizAnswer2 = document.getElementById("answer-2");
+quizAnswer2.innerText = questions[0].options[1];
 
-const quizAnswer3 = document.getElementById('answer-3');
-quizAnswer3.innerText = (questions[0].options[2]);
+const quizAnswer3 = document.getElementById("answer-3");
+quizAnswer3.innerText = questions[0].options[2];
 
-const quizAnswer4 = document.getElementById('answer-4');
-quizAnswer4.innerText = (questions[0].options[3]);
+const quizAnswer4 = document.getElementById("answer-4");
+quizAnswer4.innerText = questions[0].options[3];
 
 // The 'quizAnswer' variables target the associated answer id's in index.html. The 'quizAnswer.innerText' functions replace the text from 'answer-<>' elements with text from the 'questions[0].options' arrays.
 
@@ -138,9 +99,9 @@ button4.addEventListener("click", changeColorWhenClicked);
 
 let selectedAnswer = null;
 
-// Initialising a selectedAnswer variable with a null value. This means  the initial value when no answer is selected is null.                                                
+// Initialising a selectedAnswer variable with a null value. This means  the initial value when no answer is selected is null.
 
-function changeColorWhenClicked (event) {
+function changeColorWhenClicked(event) {
   button1.style.backgroundColor = "#F7DBA7";
   button2.style.backgroundColor = "#F7DBA7";
   button3.style.backgroundColor = "#F7DBA7";
@@ -156,12 +117,57 @@ submitPush.addEventListener("click", submitAnswer);
 
 // The submitPush variable is linked to the "submit-button" element in the html. The addEventListener method runs the "submitAnswer" function when the "submit-button" button is clicked.
 
-function submitAnswer() {
+function submitAnswer(event) {
+  let correctAnswer = questions[0].answer;
+
   if (selectedAnswer === null) {
     alert("No answer selected");
-  } else {
-    console.log("You selected: " + selectedAnswer);
+  return;
   }
+
+    button1.style.backgroundColor = "#F7DBA7";
+    button2.style.backgroundColor = "#F7DBA7";
+    button3.style.backgroundColor = "#F7DBA7";
+    button4.style.backgroundColor = "#F7DBA7";
+
+  if (selectedAnswer === correctAnswer) {
+    if (selectedAnswer === button1.innerText) {
+      button1.style.backgroundColor = "green";
+    } else if (selectedAnswer === button2.innerText) {
+      button2.style.backgroundColor = "green";
+    } else if (selectedAnswer === button3.innerText) {
+      button3.style.backgroundColor = "green";
+    } else if (selectedAnswer === button4.innerText) {
+      button4.style.backgroundColor = "green";
+    }
+  } else {
+    if (selectedAnswer != correctAnswer) {
+      button1.style.backgroundColor = "red";
+    } else if (selectedAnswer != button2.innerText) {
+      button2.style.backgroundColor = "red";
+    } else if (selectedAnswer != button3.innerText) {
+      button3.style.backgroundColor = "red";
+    } else if (selectedAnswer != button4.innerText) {
+      button4.style.backgroundColor = "red";
+    }
+  }
+
+    if (selectedAnswer === button1.innerText) {
+      button1.style.backgroundColor = "green";
+    } else if (selectedAnswer === button2.innerText) {
+      button2.style.backgroundColor = "green";
+    } else if (selectedAnswer === button3.innerText) {
+      button3.style.backgroundColor = "green";
+    } else if (selectedAnswer === button4.innerText) {
+      button4.style.backgroundColor = "green";
+    }
+
+    const submitPush = document.getElementById('submit-button');
+    submitPush.innerText = "Go to next question";
 }
 
+
+
 // If the user hasn't clicked an answer button, the value of selectedAnswer is null, and an alert will pop up and let the user know there is "No answer selected". If an answer has been selected, the function will log the "You selected <answer>" to the console. The function provides feedback to the user by letting them know if they have selected an answer and what answer they have selected.
+
+// Declares a correctAnswer variable as the answer object within the first questions object in the questions array.

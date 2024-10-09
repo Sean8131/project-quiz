@@ -8,6 +8,7 @@ body {
     padding: 20px;
     text-align: center;
     background-color: #F7DBA7;
+    max-width: 80%;
 }
 
 .quiz-tracker {
