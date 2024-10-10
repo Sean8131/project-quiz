@@ -176,7 +176,43 @@ function submitAnswer(event) {
   // Highlights the button with the correct answer so the user can see the correct answer.
 
     const submitPush = document.getElementById('submit-button');
-    submitPush.innerText = "Go to next question";
+    let didSubmitAnswer = false;
+    let currentQuestion = 0;
+
+    submitPush.addEventListener("click", );
+    
+    if (submitPush.innerText === "Go to next question") {
+      didSubmitAnswer = true;
+    }
+
+    if (didSubmitAnswer === true) {
+      goToNextQuestion();
+    }
+
+
+    function goToNextQuestion() {
+      currentQuestion++;
+
+      if (currentQuestion < questions.length) {
+        const quizQuestion = document.getElementById("quiz-question");
+        quizQuestion.innerText = questions[currentQuestion].question;
+
+        const quizAnswer1 = document.getElementById('answer-1');
+        quizAnswer1.innerText = questions[currentQuestion].options[0];
+
+        const quizAnswer2 = document.getElementById('answer-2');
+        quizAnswer2.innerText = questions[currentQuestion].options[1];
+
+        const quizAnswer3 = document.getElementById('answer-3');
+        quizAnswer3.innerText = questions[currentQuestion].options[2];
+
+        const quizAnswer4 = document.getElementById('answer-4');
+        quizAnswer4.innerText = questions[currentQuestion].options[3];
+
+        submitPush.innerText = "Submit answer";
+      }
+    }
 }
 
 // Changes 'submit-button' text from "submit answer" to "go to next question".
+
