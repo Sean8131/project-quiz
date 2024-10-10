@@ -62,7 +62,7 @@ const questions = [
   },
 ];
 
-// Add your code underneath this comment.
+// Declare an array called questions. Each element in the array is an object with the properties "question", "options", and "answer". The "question" property contains the question as a string. The "options" property holds the answers as an array of strings. And the answer property holds the correct answer a string.
 
 const quizQuestion = document.getElementById("quiz-question");
 quizQuestion.innerText = questions[0].question;
@@ -98,6 +98,8 @@ button4.addEventListener("click", changeColorWhenClicked);
 // Added event listeners to each button that run the "changeColorWhenClicked" function when they are pressed.
 
 let selectedAnswer = null;
+let didSubmitAnswer = null;
+let currentQuestionNumber = 0;
 
 // Initialising a selectedAnswer variable with a null value. This means  the initial value when no answer is selected is null.
 
@@ -119,23 +121,25 @@ submitPush.addEventListener("click", submitAnswer);
 
 function submitAnswer(event) {
   let correctAnswer = questions[0].answer;
-  
-  // Declares a correctAnswer variable as the answer object within the first questions object in the questions array.
-  
+
   if (selectedAnswer === null) {
     alert("No answer selected");
-  return;
+    return;
+  } else {
+    didSubmitAnswer = true;
   }
 
+  // Declares a correctAnswer variable as the answer object within the first questions object in the questions array.
+  
   // If there is no answer selected, the value is null and an alert pops up on the browser to notify the user. Then the function exits using return because there is no need to run the rest of the function if there is no answer selected.
-
-    button1.style.backgroundColor = "#F7DBA7";
-    button2.style.backgroundColor = "#F7DBA7";
-    button3.style.backgroundColor = "#F7DBA7";
-    button4.style.backgroundColor = "#F7DBA7";
-
-    // Resets all the buttons to the default color before any answers are highlighted.
-
+  
+  button1.style.backgroundColor = "#F7DBA7";
+  button2.style.backgroundColor = "#F7DBA7";
+  button3.style.backgroundColor = "#F7DBA7";
+  button4.style.backgroundColor = "#F7DBA7";
+  
+  // Resets all the buttons to the default color before any answers are highlighted.
+  
   if (selectedAnswer === correctAnswer) {
     if (selectedAnswer === button1.innerText) {
       button1.style.backgroundColor = "green";
@@ -146,9 +150,8 @@ function submitAnswer(event) {
     } else if (selectedAnswer === button4.innerText) {
       button4.style.backgroundColor = "green";
     }
-
+    
     // If statement to check if the selected answer is the same as the correct answer. If the seclected answer is the right one, then the button will be highlighted green.
-
   } else {
     if (selectedAnswer === button1.innerText) {
       button1.style.backgroundColor = "red";
@@ -159,9 +162,9 @@ function submitAnswer(event) {
     } else if (selectedAnswer === button4.innerText) {
       button4.style.backgroundColor = "red";
     }
-
+    
     // If the selected answer was incorrect, highlight the button in red.
-
+    
     if (correctAnswer === button1.innerText) {
       button1.style.backgroundColor = "green";
     } else if (correctAnswer === button2.innerText) {
@@ -172,47 +175,21 @@ function submitAnswer(event) {
       button4.style.backgroundColor = "green";
     }
   }
-
-  // Highlights the button with the correct answer so the user can see the correct answer.
-
-    const submitPush = document.getElementById('submit-button');
-    let didSubmitAnswer = false;
-    let currentQuestion = 0;
-
-    submitPush.addEventListener("click", );
-    
-    if (submitPush.innerText === "Go to next question") {
-      didSubmitAnswer = true;
-    }
-
-    if (didSubmitAnswer === true) {
-      goToNextQuestion();
-    }
-
-
-    function goToNextQuestion() {
-      currentQuestion++;
-
-      if (currentQuestion < questions.length) {
-        const quizQuestion = document.getElementById("quiz-question");
-        quizQuestion.innerText = questions[currentQuestion].question;
-
-        const quizAnswer1 = document.getElementById('answer-1');
-        quizAnswer1.innerText = questions[currentQuestion].options[0];
-
-        const quizAnswer2 = document.getElementById('answer-2');
-        quizAnswer2.innerText = questions[currentQuestion].options[1];
-
-        const quizAnswer3 = document.getElementById('answer-3');
-        quizAnswer3.innerText = questions[currentQuestion].options[2];
-
-        const quizAnswer4 = document.getElementById('answer-4');
-        quizAnswer4.innerText = questions[currentQuestion].options[3];
-
-        submitPush.innerText = "Submit answer";
-      }
-    }
+  if (didSubmitAnswer === true && selectedAnswer != null) {
+    goToNextQuestion();
+  }
 }
 
-// Changes 'submit-button' text from "submit answer" to "go to next question".
 
+function goToNextQuestion() {
+  currentQuestionNumber++;
+  if (currentQuestionNumber < questions.length) {
+    quizQuestion.innerText = questions[currentQuestionNumber].question;
+    quizAnswer1.innerText = questions[currentQuestionNumber].options[0];
+    quizAnswer2.innerText = questions[currentQuestionNumber].options[1];
+    quizAnswer3.innerText = questions[currentQuestionNumber].options[2];
+    quizAnswer4.innerText = questions[currentQuestionNumber].options[3];
+  } else {
+    alert("You've completed the quiz");
+  }
+}
