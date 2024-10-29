@@ -105,11 +105,12 @@ let currentQuestionNumber = 0;
 
 // The changeColorWhenClicked function first resets all of the answers back to the original color. Then changes the color of the answer that was clicked. It does this by using the event property of the event object to listen for an event, in this case, the button been clicked. Once a button is clicked, the selectedAnswer variable is reassigned the value of the button that was clicked.
 
+
 function changeColorWhenClicked(event) {
-  button1.style.backgroundColor = "#F7DBA7";
-  button2.style.backgroundColor = "#F7DBA7";
-  button3.style.backgroundColor = "#F7DBA7";
-  button4.style.backgroundColor = "#F7DBA7";
+  button1.style.backgroundColor = "";
+  button2.style.backgroundColor = "";
+  button3.style.backgroundColor = "";
+  button4.style.backgroundColor = "";
   event.target.style.backgroundColor = "#D1DCF0";
   selectedAnswer = event.target.innerText;
 }
