@@ -61,3 +61,19 @@ const questions = [
       answer: "Rotorua",
     },
   ];
+
+//   Declare variables and link them to the DOM
+  const questionElement = document.getElementById('quiz-question');
+  const answer1Element = document.getElementById('answer-1');
+  const answer2Element = document.getElementById('answer-2');
+  const answer3Element = document.getElementById('answer-3');
+  const answer4Element = document.getElementById('answer-4');
+
+//   Display first question in question area
+questionElement.innerText = questions[0].question;
+
+// Display answer choices
+answer1Element.innerText = questions[0].options[0];
+answer2Element.innerText = questions[0].options[1];
+answer3Element.innerText = questions[0].options[2];
+answer4Element.innerText = questions[0].options[3];
