@@ -63,17 +63,42 @@ const questions = [
   ];
 
 //   Declare variables and link them to the DOM
+
   const questionElement = document.getElementById('quiz-question');
   const answer1Element = document.getElementById('answer-1');
   const answer2Element = document.getElementById('answer-2');
   const answer3Element = document.getElementById('answer-3');
   const answer4Element = document.getElementById('answer-4');
+  const submitButton = document.getElementById('submit-button');
 
 //   Display first question in question area
+
 questionElement.innerText = questions[0].question;
 
 // Display answer choices
+
 answer1Element.innerText = questions[0].options[0];
 answer2Element.innerText = questions[0].options[1];
 answer3Element.innerText = questions[0].options[2];
 answer4Element.innerText = questions[0].options[3];
+
+// Declare array for answer buttons
+
+let answersArray = [answer1Element, answer2Element, answer3Element, answer4Element]
+
+// Add event listener to answer and submit buttons
+answer1Element.addEventListener('click', greenHighlight);
+answer2Element.addEventListener('click', greenHighlight);
+answer3Element.addEventListener('click', greenHighlight);
+answer4Element.addEventListener('click', greenHighlight);
+
+// Answer button turns green when clicked
+answersArray.forEach(greenhighlight);
+
+function greenHighlight(event){
+    answer1Element.style.backgroundColor = "";
+    answer2Element.style.backgroundColor = "";
+    answer3Element.style.backgroundColor = "";
+    answer4Element.style.backgroundColor = "";
+    event.target.style.backgroundColor = "green";
+}
