@@ -69,6 +69,9 @@ const questions = [
   const answer2Element = document.getElementById('answer-2');
   const answer3Element = document.getElementById('answer-3');
   const answer4Element = document.getElementById('answer-4');
+  const submitButton = document.getElementById('submit-button');
+
+  let selectedAnswer = null;
 
 // Show first question in question area
 
@@ -81,3 +84,27 @@ answer2Element.innerText = questions[0].options[1];
 answer3Element.innerText = questions[0].options[2];
 answer4Element.innerText = questions[0].options[3];
 
+// Add event listeners to buttons
+
+answer1Element.addEventListener('click', selectAnswer);
+answer2Element.addEventListener('click', selectAnswer);
+answer3Element.addEventListener('click', selectAnswer);
+answer4Element.addEventListener('click', selectAnswer);
+
+// Submit event handler
+submitButton.addEventListener('click', submitButtonClicked);
+
+// Change background color when answer is clicked
+
+function selectAnswer(event){
+    //if(selectedAnswer)
+    answer1Element.style.backgroundColor = "";
+    answer2Element.style.backgroundColor = "";
+    answer3Element.style.backgroundColor = "";
+    answer4Element.style.backgroundColor = "";
+    event.target.style.backgroundColor = "lightgrey";
+}
+
+function submitButtonClicked () {
+    alert('You have not selected an answer');
+}
