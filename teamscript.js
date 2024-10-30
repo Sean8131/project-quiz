@@ -78,13 +78,6 @@ let correctAnswer = questions[0].answer;
 
 questionsElement.innerText = questions[0].question;
 
-// Show answers for first question
-
-// answer1Element.innerText = questions[0].options[0];
-// answer2Element.innerText = questions[0].options[1];
-// answer3Element.innerText = questions[0].options[2];
-// answer4Element.innerText = questions[0].options[3];
-
 // Make a forEach loop for the answer elements
 
 const answersArray = [
@@ -105,13 +98,6 @@ answersArray.forEach(function (answerButton, index) {
     correctAnswerElement = answerButton;
   }
 });
-
-// Add event listeners to buttons
-
-/*answer1Element.addEventListener("click", selectAnswer);
-answer2Element.addEventListener("click", selectAnswer);
-answer3Element.addEventListener("click", selectAnswer);
-answer4Element.addEventListener("click", selectAnswer);*/
 
 answersArray.forEach(function (answerButton) {
   answerButton.addEventListener("click", selectAnswer);
