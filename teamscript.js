@@ -73,3 +73,11 @@ const questions = [
 // Show first question in question area
 
   questionsElement.innerText = questions[0].question;
+
+// Show answers for first question
+
+answer1Element.innerText = questions[0].options[0];
+answer2Element.innerText = questions[0].options[1];
+answer3Element.innerText = questions[0].options[2];
+answer4Element.innerText = questions[0].options[3];
+
