@@ -72,6 +72,7 @@ const questions = [
   const submitButton = document.getElementById('submit-button');
 
   let selectedAnswer = null;
+  let correctAnswer = questions[0].answer;
 
 // Show first question in question area
 
@@ -97,7 +98,6 @@ submitButton.addEventListener('click', submitButtonClicked);
 // Change background color when answer is clicked
 
 function selectAnswer(event){
-    //if(selectedAnswer)
     answer1Element.style.backgroundColor = "";
     answer2Element.style.backgroundColor = "";
     answer3Element.style.backgroundColor = "";
@@ -106,5 +106,13 @@ function selectAnswer(event){
 }
 
 function submitButtonClicked () {
-    alert('You have not selected an answer');
+    if (selectedAnswer == null){
+        alert('You have not selected an answer');
+    }
+
+    // Highlight correct answer in green
+    if(selectedAnswer == correctAnswer) {
+    }
 }
+
+selectedAnswer = answer1Element.innerText;
