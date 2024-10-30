@@ -134,6 +134,8 @@ function submitButtonClicked(event) {
   if (selectedButton !== correctAnswerElement) {
     selectedButton.style.backgroundColor = "red";
   }
+
+  submitButton.innerText = "Go to next question";
 }
 
 // Write a function that takes all the dependent variables that change with each question
