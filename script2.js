@@ -91,8 +91,10 @@ answer1Element.addEventListener('click', greenHighlight);
 answer2Element.addEventListener('click', greenHighlight);
 answer3Element.addEventListener('click', greenHighlight);
 answer4Element.addEventListener('click', greenHighlight);
+submitButton.addEventListener('click', showAlert);
 
 // Answer button turns green when clicked
+
 answersArray.forEach(greenhighlight);
 
 function greenHighlight(event){
@@ -101,4 +103,8 @@ function greenHighlight(event){
     answer3Element.style.backgroundColor = "";
     answer4Element.style.backgroundColor = "";
     event.target.style.backgroundColor = "green";
+}
+
+function showAlert( ){
+    alert('Please select an answer');
 }
