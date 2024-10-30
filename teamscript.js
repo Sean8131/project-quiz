@@ -62,54 +62,14 @@ const questions = [
     },
   ];
 
-//   Declare variables and link them to the DOM
+//   Declare elements and access from the DOM
 
-  const questionElement = document.getElementById('quiz-question');
+  const questionsElement = document.getElementById('quiz-question');
   const answer1Element = document.getElementById('answer-1');
   const answer2Element = document.getElementById('answer-2');
   const answer3Element = document.getElementById('answer-3');
   const answer4Element = document.getElementById('answer-4');
-  const submitButton = document.getElementById('submit-button');
 
-//   Display first question in question area
+// Show first question in question area
 
-questionElement.innerText = questions[0].question;
-
-// Display answer choices
-
-answer1Element.innerText = questions[0].options[0];
-answer2Element.innerText = questions[0].options[1];
-answer3Element.innerText = questions[0].options[2];
-answer4Element.innerText = questions[0].options[3];
-
-// Declare array for answer buttons
-
-let answersArray = [answer1Element, answer2Element, answer3Element, answer4Element]
-
-// Add event listener to answer and submit buttons
-answer1Element.addEventListener('click', yellowHighlight);
-answer2Element.addEventListener('click', yellowHighlight);
-answer3Element.addEventListener('click', yellowHighlight);
-answer4Element.addEventListener('click', yellowHighlight);
-submitButton.addEventListener('click', showAlert);
-
-// Answer button turns yellow when clicked
-
-function yellowHighlight(event){
-    answer1Element.style.backgroundColor = "";
-    answer2Element.style.backgroundColor = "";
-    answer3Element.style.backgroundColor = "";
-    answer4Element.style.backgroundColor = "";
-    event.target.style.backgroundColor = "yellow";
-}
-
-answersArray.forEach(yellowHighlight);
-
-function showAlert( ){
-    alert('Please select an answer');
-}
-
-// Highlight the correct answer in green
-
-let correctAnswer = questions[0].answer;
-console.log(correctAnswer);
+  questionsElement.innerText = questions[0].question;
